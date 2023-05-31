@@ -12,6 +12,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MainComponent } from './components/main/main.component';
 import { ProductComponent } from './components/product/product.component';
 import { CartComponent } from './components/cart/cart.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { CartComponent } from './components/cart/cart.component';
     BrowserAnimationsModule,
     MatIconModule,
     HttpClientModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

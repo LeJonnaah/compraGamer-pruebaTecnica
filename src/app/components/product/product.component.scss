@@ -30,6 +30,7 @@
     background-color: #fff;
     box-shadow: 0 0 5px #ccc;
     transition: all 0.3s ease-in-out;
+    width: calc(20% - 50px); 
 
     &:hover {
         box-shadow: 0 0 10px #ccc;
@@ -50,5 +51,11 @@
             background-color: #000;
             color: #fff;
         }
+    }
+
+    &__image {
+        object-fit: cover;
+        width: 100%;
+        height: 150px;
     }
 }

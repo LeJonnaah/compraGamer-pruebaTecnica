@@ -1,6 +1,9 @@
 <div class="productos-container">
-    <div *ngFor="let producto of productos" class="producto">
-        <img width="200" height="200" [ngSrc]="producto.imagenes" alt="{{ producto.nombre }}" class="producto__imagen">
+    <div 
+        *ngFor="let producto of productos   | paginate: { itemsPerPage: 10, currentPage: page }" 
+        class="producto"
+    >
+        <img height="100" width="150" [ngSrc]="producto.imagenes" alt="{{ producto.nombre }}" class="producto__image">
         <h3 class="producto__nombre">{{ producto.nombre }}</h3>
         <p class="producto__precio">{{ producto.precio | currency }}</p>
         <button 
@@ -10,4 +13,11 @@
             Agregar
         </button>
     </div>
+</div>
+
+<div class="pagination-container">
+    <pagination-controls 
+        (pageChange)="page = $event"
+        previousLabel="Previous"
+    ></pagination-controls>
 </div>

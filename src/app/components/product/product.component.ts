@@ -11,6 +11,7 @@ import { SubcategoryService } from 'src/app/services/sub-categories.service';
 export class ProductComponent {
   productos: any[] = [];
   subcategorias: any[] = [];
+  page!: number;
 
   constructor(
     private productosService: ProductosService,
@@ -44,9 +45,6 @@ export class ProductComponent {
       console.error(subcategories);
       this.subcategorias = subcategories;
     }
-    
-
-
 
   }
 }
