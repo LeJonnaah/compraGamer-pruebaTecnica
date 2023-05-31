@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
@@ -8,26 +8,28 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent  {
 
-  formReg: FormGroup;
+  formReg!: FormGroup;
 
   constructor(
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private fb: FormBuilder
   ) {
-    this.formReg = new FormGroup({
-      name: new FormControl(),
-      lastName: new FormControl(),
-      phone: new FormControl(),
-      dni: new FormControl(),
-      email: new FormControl(),
-      password: new FormControl(),
-      confirmPassword: new FormControl()
-    });
+    this.createForm();
   }
 
-  ngOnInit(): void {
+  createForm() {
+    this.formReg = this.fb.group({
+      name: ['', Validators.required],
+      lastName: ['', Validators.required],
+      email: ['', Validators.required],
+      dni: ['', Validators.required,],
+      phone: ['', Validators.required,],
+      password: ['', Validators.required, Validators.minLength(6)],
+      confirmPassword: ['', Validators.required, Validators.minLength(6)]
+    });
   }
 
   onSubmit() {
