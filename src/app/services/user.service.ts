@@ -19,4 +19,9 @@ export class UserService {
   logout() {
     return signOut(this.auth);
   }
+
+  isLoggedIn() {
+    return this.auth.currentUser !== null;
+  }
+  
 }
