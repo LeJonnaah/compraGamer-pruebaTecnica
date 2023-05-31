@@ -13,7 +13,6 @@ import { LoginComponent } from './components/login/login.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
-import { CartComponent } from './components/cart/cart.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MainComponent } from './components/main/main.component';
@@ -31,14 +30,17 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FooterComponent,
     MainComponent,
     ProductComponent,
-    CartComponent
+    CartComponent,
   ],
   imports: [
     BrowserModule,
+    NgxPaginationModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MatIconModule,
+    HttpClientModule,
+    NgOptimizedImage,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth())
   ],

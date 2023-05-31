@@ -10,3 +10,8 @@ export class CartComponent implements OnInit {
   cartItems: any[] = [];
 
   constructor(private cartService: CartService) { }
+
+  ngOnInit(): void {
+    this.cartItems = this.cartService.getCartItems();
+  }
+}
