@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ProductosService } from '../../services/products.service';
 import { CartService } from '../../services/cart.service';
+import { SubcategoryService } from 'src/app/services/sub-categories.service';
 
 @Component({
   selector: 'app-product',
@@ -9,18 +10,18 @@ import { CartService } from '../../services/cart.service';
 })
 export class ProductComponent {
   productos: any[] = [];
-
+  subcategorias: any[] = [];
 
   constructor(
     private productosService: ProductosService,
-    private cartService: CartService
+    private cartService: CartService,
+    private subcategoriesService: SubcategoryService
     ) {}
 
     getProductList(): void {
       this.productosService.getProductos().subscribe((data: any) => {
         this.productos = data;
         this.productosService.getImageUrl(this.productos);
-        console.log(this.productos);
       });
     }
 
@@ -37,5 +38,15 @@ export class ProductComponent {
       this.productosService.getImageUrl(this.productos);
     }
     
+    
+    const subcategories = await this.subcategoriesService.getSubcategories().toPromise();
+    if (subcategories) {
+      console.error(subcategories);
+      this.subcategorias = subcategories;
+    }
+    
+
+
+
   }
 }
