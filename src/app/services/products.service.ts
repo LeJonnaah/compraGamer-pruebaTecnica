@@ -9,6 +9,7 @@ export class ProductosService {
 
   private productApiUrl = 'https://static.compragamer.com/test/productos.json';
   private imageBaseUrl = 'https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_';
+  private cartItems: any[] = [];
 
   constructor(private http: HttpClient) { }
 

@@ -1,10 +1,1 @@
-<div class="productos">
-  <div *ngFor="let producto of productos" class="producto">
-    <img width="200" height="200" [ngSrc]="producto.imagenes" alt="{{ producto.nombre }}" class="producto__imagen">
-    <h3 class="producto__nombre">{{ producto.nombre }}</h3>
-    <p class="producto__precio">{{ producto.precio | currency }}</p>
-    <button class="producto__boton">
-      Agregar
-    </button>
-  </div>
-</div>
+<app-product></app-product>
