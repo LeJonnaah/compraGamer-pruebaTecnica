@@ -19,6 +19,10 @@
             <li class="nav-item">
                 <a class="nav-item__link" routerLink="/cart" routerLinkActive="active">
                     <mat-icon>shopping_cart</mat-icon>
+                    <span 
+                        class="cart-notification"
+                        *ngIf="cartItemCount > 0"
+                    >{{ cartItemCount }}</span>
                 </a>
             </li>
             <!-- <li class="nav-item" *ngIf="auth.user | async as user"> -->
