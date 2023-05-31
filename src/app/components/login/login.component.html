@@ -2,11 +2,14 @@
 <form class="login__form" [formGroup]="formLogin" (ngSubmit)="onSubmit()">
     <div class="login__form-group">
         <label class="login__label" for="email">Email</label>
-        <input class="login__input" type="text" id="email" formControlName="email">
+        <input [class.is-invalid]="invalidEmail" class="login__input" type="text" id="email" formControlName="email">
+        <span *ngIf="invalidEmail" class="login__error">El email no es válido</span>
     </div>
     <div class="login__form-group">
         <label class="login__label" for="password">Contraseña</label>
-        <input class="login__input" type="password" id="password" formControlName="password">
+        <input [class.is-invalid]="invalidPassword" class="login__input" type="password" id="password"
+            formControlName="password">
+        <span *ngIf="invalidPassword" class="login__error">La contraseña debe tener al menos 6 caracteres</span>
     </div>
     <div class="login__form-group">
         <a class="login__link" routerLink="/register">¿No tienes una cuenta?</a>

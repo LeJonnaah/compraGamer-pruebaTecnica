@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 
 
@@ -33,8 +34,7 @@ import { MainComponent } from './components/main/main.component';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth()),
-    MatIconModule
+    provideAuth(() => getAuth())
   ],
   providers: [],
   bootstrap: [AppComponent]
