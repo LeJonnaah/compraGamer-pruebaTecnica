@@ -1,0 +1,41 @@
+.navbar {
+    background-color: #333;
+    padding: 10px;
+    position: relative;
+
+    &-nav {
+        display: flex;
+        list-style-type: none;
+        padding: 0;
+    }
+}
+
+.nav-item {
+    margin-right: 10px;
+
+    &--right {
+        margin-left: auto;
+        display: flex;
+    }
+
+    &__link {
+        color: #fff;
+        text-decoration: none;
+        padding: 5px;
+        transition: color 0.3s;
+
+        &:hover {
+            color: #ff9800;
+        }
+
+        &.active {
+            font-weight: bold;
+            background-color: #ff9800;
+        }
+    }
+}
+
+    .mat-icon {
+        font-size: 24px;
+        cursor: pointer;
+    }

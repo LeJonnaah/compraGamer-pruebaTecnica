@@ -1,0 +1,19 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f2f2f2;
+    padding: 20px;
+
+    &__content {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    &__text {
+        font-size: 14px;
+        color: #666;
+        margin: 0;
+    }
+}
