@@ -17,8 +17,13 @@ export class RegisterComponent implements OnInit {
     private userService: UserService
   ) {
     this.formReg = new FormGroup({
+      name: new FormControl(),
+      lastName: new FormControl(),
+      phone: new FormControl(),
+      dni: new FormControl(),
       email: new FormControl(),
-      password: new FormControl()
+      password: new FormControl(),
+      confirmPassword: new FormControl()
     });
   }
 
