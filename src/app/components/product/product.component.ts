@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ProductosService } from '../../services/products.service';
 import { CartService } from '../../services/cart.service';
 import { SubcategoryService } from 'src/app/services/sub-categories.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-product',
@@ -28,6 +29,13 @@ export class ProductComponent {
 
     addToCart(product: any): void {
       this.cartService.addToCart(product);
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: '¡Producto agregado al carrito!',
+        showConfirmButton: false,
+        timer: 1500
+      })
     }
 
   async ngOnInit() {

@@ -5,11 +5,12 @@ import { Injectable } from '@angular/core';
 })
 export class CartService {
   private cartItems: any[] = [];
-
+  totalItems = 0;
   constructor() { }
 
   addToCart(product: any): void {
     this.cartItems.push(product);
+    this.totalItems++;
   }
 
   removeFromCart(product: any): void {

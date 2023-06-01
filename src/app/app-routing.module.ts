@@ -8,6 +8,7 @@ import { MainComponent } from './components/main/main.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },
+  { path: 'main', component: MainComponent },
   { path: 'cart', component: CartComponent, ...canActivate(() => redirectUnauthorizedTo(['/login']))},
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent }

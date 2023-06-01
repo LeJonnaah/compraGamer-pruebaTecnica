@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -44,7 +45,13 @@ export class LoginComponent {
     this.userService.login(this.formLogin.value.email, this.formLogin.value.password)
       .then((userCredential) => {
         const user = userCredential.user;
-        alert('Usuario logueado');
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: '¡Logueado correctamente!',
+          showConfirmButton: false,
+          timer: 1500
+        })
         this.router.navigate(['/']);
       }
       )
