@@ -25,7 +25,7 @@ export class LoginComponent {
   createForm() {
     this.formLogin = this.fb.group({
       email: ['', Validators.required],
-      password: ['', Validators.required ]
+      password: ['', Validators.required]
     });
   }
 
@@ -56,6 +56,11 @@ export class LoginComponent {
       }
       )
       .catch((error) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: '¡Usuario o contraseña incorrectos!',
+        })
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);

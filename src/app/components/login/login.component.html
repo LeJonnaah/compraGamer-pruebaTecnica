@@ -1,5 +1,5 @@
-<h2 class="login__title">Iniciar sesión</h2>
 <form class="login__form" [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+    <h2 class="login__title">Iniciar sesión</h2>
     <div class="login__form-group">
         <label class="login__label" for="email">Email</label>
         <input [class.is-invalid]="invalidEmail" class="login__input" type="text" id="email" formControlName="email">

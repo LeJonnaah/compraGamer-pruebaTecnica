@@ -1,5 +1,5 @@
-<h2 class="register__title">Registro de usuario</h2>
 <form class="register__form" [formGroup]="formReg" (ngSubmit)="onSubmit()">
+    <h2 class="register__title">Registro de usuario</h2>
     <div class="register__form-group">
         <label class="register__label" for="name">Nombre</label>
         <input [class.is-invalid]="invalidName" class="register__input" type="text" id="name" formControlName="name">

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -14,7 +15,7 @@ export class RegisterComponent {
   constructor(
     private router: Router,
     private userService: UserService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
   ) {
     this.createForm();
   }
@@ -83,6 +84,26 @@ export class RegisterComponent {
 
   // Handle submit
 
+  // onSubmit() {
+  //   if (this.formReg.invalid) {
+  //     return Object.values(this.formReg.controls).forEach(control => {
+  //       control.markAsTouched();
+  //     });
+  //   } else {
+  //     console.log(this.formReg.value);
+  //     this.userService.register(this.formReg.value.email, this.formReg.value.password)
+  //       .then((userCredential) => {
+  //         this.router.navigate(['/']);
+  //       })
+  //       .catch((error) => {
+  //         const errorCode = error.code;
+  //         const errorMessage = error.message;
+  //         console.log(errorCode, errorMessage);
+  //       }
+  //       );
+  //   }
+  // }
+
   onSubmit() {
     if (this.formReg.invalid) {
       return Object.values(this.formReg.controls).forEach(control => {
@@ -92,14 +113,33 @@ export class RegisterComponent {
       console.log(this.formReg.value);
       this.userService.register(this.formReg.value.email, this.formReg.value.password)
         .then((userCredential) => {
+          const userData = {
+            email: this.formReg.value.email,
+            uid: userCredential.user.uid
+          };
+          localStorage.setItem('userData', JSON.stringify(userData));
           this.router.navigate(['/']);
+          Swal.fire({
+            icon: 'success',
+            title: 'Registro exitoso',
+            text: '¡Bienvenido!',
+            showConfirmButton: false,
+            timer: 1500
+          });
         })
         .catch((error) => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Algo salió mal',
+            footer: 'Por favor, intente nuevamente'
+          });
           const errorCode = error.code;
           const errorMessage = error.message;
           console.log(errorCode, errorMessage);
-        }
-        );
+        });
     }
   }
+
+  // Save data in local storage
 }
