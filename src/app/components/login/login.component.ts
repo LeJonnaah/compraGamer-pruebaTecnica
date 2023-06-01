@@ -39,12 +39,24 @@ export class LoginComponent {
     return this.formLogin.get('password')?.invalid && this.formLogin.get('password')?.touched;
   }
 
+  // onInit 
+
+  // ngOnInit() {
+  //   const userString = localStorage.getItem('user');
+  //   if (userString) {
+  //     const user = JSON.parse(userString);
+  //     this.userService.login(user.email, user.password)
+  //     this.router.navigate(['/']);
+  //   }
+  // }
+
   // Handle Submit
 
   onSubmit() {
     this.userService.login(this.formLogin.value.email, this.formLogin.value.password)
       .then((userCredential) => {
         const user = userCredential.user;
+        localStorage.setItem('user', JSON.stringify(user));
         Swal.fire({
           position: 'top-end',
           icon: 'success',

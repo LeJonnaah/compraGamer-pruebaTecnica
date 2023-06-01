@@ -118,6 +118,7 @@ export class RegisterComponent {
             uid: userCredential.user.uid
           };
           localStorage.setItem('userData', JSON.stringify(userData));
+          localStorage.setItem('formData', JSON.stringify(this.formReg.value)); 
           this.router.navigate(['/']);
           Swal.fire({
             icon: 'success',
@@ -141,5 +142,4 @@ export class RegisterComponent {
     }
   }
 
-  // Save data in local storage
 }
