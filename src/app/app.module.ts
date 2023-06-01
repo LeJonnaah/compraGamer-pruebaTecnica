@@ -19,6 +19,11 @@ import { MainComponent } from './components/main/main.component';
 import { ProductComponent } from './components/product/product.component';
 import { CartComponent } from './components/cart/cart.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { FormsModule } from '@angular/forms';
+import { FiltersComponent } from './components/filters/filters.component'
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -31,6 +36,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     MainComponent,
     ProductComponent,
     CartComponent,
+    FiltersComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +47,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
     MatIconModule,
     HttpClientModule,
     NgOptimizedImage,
+    FormsModule,
+    MatExpansionModule,
+    MatListModule,
+    MatCardModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth())
   ],
