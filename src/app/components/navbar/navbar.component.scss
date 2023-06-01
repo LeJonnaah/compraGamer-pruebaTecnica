@@ -12,10 +12,20 @@
 
 .nav-item {
     margin-right: 10px;
+    display: flex;
+    align-items: center;
 
     &--right {
         margin-left: auto;
         display: flex;
+    }
+
+    &__title {
+        color: #fff;
+        font-weight: bold;
+        padding: 0;
+        margin-right: 10px;
+        margin-left: 10px;
     }
 
     &__link {
