@@ -20,6 +20,10 @@ import { MainComponent } from './components/main/main.component';
 import { ProductComponent } from './components/product/product.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
+import { FormsModule } from '@angular/forms';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -43,6 +47,10 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     MatIconModule,
     HttpClientModule,
     NgOptimizedImage,
+    FormsModule,
+    MatExpansionModule,
+    MatListModule,
+    MatCardModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth())
   ],

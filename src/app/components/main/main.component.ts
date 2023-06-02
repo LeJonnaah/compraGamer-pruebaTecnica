@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent {
+  category: string | undefined;
 
   images = [
     {

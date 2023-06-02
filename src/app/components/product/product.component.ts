@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProductosService } from '../../services/products.service';
 import { CartService } from '../../services/cart.service';
 import { SubcategoryService } from 'src/app/services/sub-categories.service';
@@ -9,50 +9,47 @@ import Swal from 'sweetalert2';
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss']
 })
-export class ProductComponent {
-  productos: any[] = [];
-  subcategorias: any[] = [];
+export class ProductComponent implements OnInit {
   page!: number;
-
+  products: any[] = [];
+  subcategories: any[] = [];
+  selectedCategory: number = 0;
+  filteredProducts: any[] = [];
+  
   constructor(
     private productosService: ProductosService,
     private cartService: CartService,
     private subcategoriesService: SubcategoryService
-    ) {}
+  ) { }
 
-    getProductList(): void {
-      this.productosService.getProductos().subscribe((data: any) => {
-        this.productos = data;
-        this.productosService.getImageUrl(this.productos);
-      });
-    }
+  addToCart(product: any): void {
+    this.cartService.addToCart(product);
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: '¡Producto agregado al carrito!',
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
 
-    addToCart(product: any): void {
-      this.cartService.addToCart(product);
-      Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: '¡Producto agregado al carrito!',
-        showConfirmButton: false,
-        timer: 1500
-      })
-    }
+  ngOnInit() : void {
+    this.productosService.getProducts().subscribe(products => {
+      this.products = products;
+      this.filteredProducts = this.products;
+      this.assignSubcategoryNameAndImageUrl();
+    });
+    this.subcategoriesService.getSubcategories().subscribe(subcategories => {
+      this.subcategories = subcategories;
+    });
+  }
+  
+  filterProducts(category: number) {
+    this.selectedCategory = category;
+    this.filteredProducts = (category) ? this.products.filter(product => product.id_subcategoria == category) : this.products;
+  }
 
-  async ngOnInit() {
-    this.getProductList();
-
-    const data = await this.productosService.getProductos().toPromise();
-    if (data) {
-      this.productos = data;
-      this.productosService.getImageUrl(this.productos);
-    }
-    
-    
-    const subcategories = await this.subcategoriesService.getSubcategories().toPromise();
-    if (subcategories) {
-      console.error(subcategories);
-      this.subcategorias = subcategories;
-    }
-
+  assignSubcategoryNameAndImageUrl() {
+    this.productosService.assignSubcategoryNameAndImageUrl(this.products, this.subcategories);
   }
 }
