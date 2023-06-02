@@ -1,8 +1,23 @@
+@font-face {
+    font-family: 'Codec Cold Trial Light';
+    src: url('assets/fonts/Codec-Warm-Light-trial.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Codec Cold ExtraBold';
+    src: url('assets/fonts/Codec-Cold-ExtraBold-trial.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Codec Cold Trial Regular';
+    src: url('assets/fonts/Codec-Warm-Regular-trial.ttf') format('truetype');
+}
+
 html, body { height: 100%; }
 
 body { 
-    margin: 0; font-family: Roboto, 
-    "Helvetica Neue", sans-serif; 
+    margin: 0; 
+    font-family: 'Codec Cold Trial Regular';
     display: flex;
     flex-direction: column;
     min-height: 100vh;

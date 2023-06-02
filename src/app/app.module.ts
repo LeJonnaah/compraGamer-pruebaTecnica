@@ -16,7 +16,7 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { MainComponent } from './components/main/main.component';
+import { MainComponent } from './pages/main/main.component';
 import { ProductComponent } from './components/product/product.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CarouselComponent } from './components/carousel/carousel.component';

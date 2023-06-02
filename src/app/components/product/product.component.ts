@@ -41,6 +41,7 @@ export class ProductComponent implements OnInit {
     });
     this.subcategoriesService.getSubcategories().subscribe(subcategories => {
       this.subcategories = subcategories;
+      this.assignSubcategoryNameAndImageUrl();
     });
   }
   

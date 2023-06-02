@@ -1,0 +1,8 @@
+@import '/src/variables.scss';
+
+.main-separator {
+    border: none;
+    height: 1px; 
+    background-color: $tertiary-color; 
+    margin: 6em 8em
+}
