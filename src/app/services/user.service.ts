@@ -33,8 +33,7 @@ export class UserService {
   
   // Inicio de sesión del usuario
   login(email: string, password: string) {
-    if (this.auth.currentUser && email ) {
-      console.log(this.auth.currentUser);
+    if ( this.auth.currentUser && this.auth.currentUser.email === email) {
       this.loggedIn.next(true);
     }
     return signInWithEmailAndPassword(this.auth, email, password);

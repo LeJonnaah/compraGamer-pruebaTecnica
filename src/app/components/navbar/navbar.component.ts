@@ -33,6 +33,7 @@ export class NavbarComponent {
 
   onClick() {
     this.userService.logout();
+    this.router.navigate(['/login']);
     Swal.fire({
       position: 'top-start',
       icon: 'success',
