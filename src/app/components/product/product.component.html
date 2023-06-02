@@ -1,9 +1,10 @@
-<div class="productos-container">
-    <div *ngFor="let producto of productos   | paginate: { itemsPerPage: 10, currentPage: page }" class="producto">
-        <img height="100" width="150" [ngSrc]="producto.imagenes" alt="{{ producto.nombre }}" class="producto__image">
-        <h3 class="producto__nombre">{{ producto.nombre }}</h3>
-        <p class="producto__precio">{{ producto.precio | currency }}</p>
-        <button class="producto__button" (click)="addToCart(producto)">
+<div class="products-container">
+    <div *ngFor="let product of products   | paginate: { itemsPerPage: 10, currentPage: page }" class="product">
+        <img height="100" width="150" [ngSrc]="product.imagen" alt="{{ product.nombre }}" class="product__image">
+        <h3 class="product__name">{{ product.nombre }}</h3>
+        <p class="product__description">{{ product.subcategoria }}</p>
+        <p class="product__price">{{ product.precio | currency }}</p>
+        <button class="product__button" (click)="addToCart(product)">
             Agregar
         </button>
     </div>

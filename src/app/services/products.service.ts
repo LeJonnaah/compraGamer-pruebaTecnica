@@ -12,13 +12,26 @@ export class ProductosService {
 
   constructor(private http: HttpClient) { }
 
-  getProductos() {
+  getProducts() {
     return this.http.get<any[]>(this.productApiUrl);
   }
-  
-    getImageUrl(products: any[]) {
-      products.forEach(product => {
-        product.imagenes = this.imageBaseUrl + product.imagenes[0].nombre + '-med.jpg';
+
+  assignSubcategoryNameAndImageUrl(products: any[], subcategories: any[]) {
+    const subcategoriesMap: Record<string, any> = {};
+    subcategories.forEach(subcategory => {
+      subcategoriesMap[subcategory.id] = subcategory;
+    });
+
+    products.forEach(product => {
+      const subcategory = subcategoriesMap[product.id_subcategoria];
+      if (subcategory) {
+        product.subcategoria = subcategory.nombre;
+      }
+
+      const imageName = product.imagenes[0].nombre;
+      const imageUrl = `${this.imageBaseUrl}${imageName}-med.jpg`;
+      product.imagen = imageUrl;
     });
   }
+
 }
