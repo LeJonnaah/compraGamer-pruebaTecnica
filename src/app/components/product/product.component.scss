@@ -11,6 +11,17 @@
         color: $primary-color;
         margin: 0 0 1em 0;
     }
+
+    &__select {
+        width: 100%;
+        height: 40px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 5px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
 }
 
 .products-container {
@@ -40,7 +51,7 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     width: 200px;
-    height: 300px;
+    height: 400px;
     background-color: #fff;
     box-shadow: 0 0 5px #ccc;
     transition: all 0.3s ease-in-out;
@@ -50,21 +61,12 @@
         box-shadow: 0 0 10px #ccc;
     }
 
-    &__button {
-        margin-top: auto;
-        background-color: #fff;
-        color: #000;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        padding: 5px;
-        margin: 5px;
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
-
-        &:hover {
-            background-color: #000;
-            color: #fff;
-        }
+    &__name {
+        font-family: 'Codec Cold Codec Cold ExtraBold', sans-serif;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: $primary-color;
+        margin: 0 0 1em 0;
     }
 
     &__image-container {
@@ -84,4 +86,72 @@
         height: 100%;
         object-fit: contain;
     }
+
+    &__description {
+        font-family: 'Codec Cold Trial Light', sans-serif;
+        font-size: 1rem;
+        font-weight: 900;
+        color: $primary-color;
+        margin: 0 0 1em 0;
+    }
+
+    &__price {
+        font-family: 'Codec Cold Codec Cold ExtraBold', sans-serif;
+        text-transform: uppercase;
+        font-size: 1rem;
+        font-weight: 900;
+        color: $primary-color;
+        margin: 0 0 1em 0;
+    }
+
+    &__button {
+        margin-top: auto;
+        background-color: $quaternary-color;
+        background: linear-gradient(90deg, $quaternary-color 0%, $quinary-color 50%);
+        color: #fff;
+        font-weight: 600;
+        outline: none;
+        border: 1px solid #ccc;
+        border-radius: 50px;
+        padding: 10px 30px;
+        margin: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            background: linear-gradient(90deg, $quinary-color 0%, $quaternary-color 50%);
+            transform: scale(1.1);
+        }
+    }
 }
+
+.no-products-message {
+    font-family: 'Codec Cold Codec Cold ExtraBold', sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: $primary-color;
+    margin: 1em 0;
+}
+
+// .pagination-container {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     margin: 2em 0;
+
+//     &__controls {
+//         background-color: #fff;
+//         color: #000;
+//         border: 1px solid #ccc;
+//         border-radius: 5px;
+//         padding: 5px;
+//         margin: 5px;
+//         cursor: pointer;
+//         transition: all 0.3s ease-in-out;
+
+//         &:hover {
+//             background-color: #000;
+//             color: #fff;
+//         }
+//     }
+// }

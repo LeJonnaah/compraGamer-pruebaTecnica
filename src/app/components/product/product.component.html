@@ -1,16 +1,21 @@
 <div class="main-container">
     <h2 class="main-container__title">Productos</h2>
 
-    <select [(ngModel)]="selectedCategory" (change)="filterProducts(selectedCategory)">
-        <option value="">Todas las categorías</option>
-        <option *ngFor="let category of subcategories" [value]="category.id">{{ category.nombre }}</option>
+    <select class="main-container__select" [(ngModel)]="selectedCategory" (change)="filterProducts(selectedCategory)">
+        <option class="main-container__option" value="">Todas las categorías</option>
+        <option class="main-container__option" *ngFor="let category of subcategories" [value]="category.id">{{
+            category.nombre }}</option>
     </select>
 
     <div class="products-container">
+        <div *ngIf="filteredProducts.length === 0" class="no-products-message">
+            No se encontraron productos :(
+        </div>
         <div *ngFor="let product of filteredProducts | paginate: { itemsPerPage: 10, currentPage: page }"
             class="product">
             <div class="product__image-container">
-                <img height="100" width="150" [ngSrc]="product.imagen" alt="{{ product.nombre }}" class="product__image">
+                <img height="100" width="150" [ngSrc]="product.imagen" alt="{{ product.nombre }}"
+                    class="product__image">
             </div>
             <h3 class="product__name">{{ product.nombre }}</h3>
             <p class="product__description">{{ product.subcategoria }}</p>
@@ -22,6 +27,7 @@
     </div>
 
     <div class="pagination-container">
-        <pagination-controls (pageChange)="page = $event" previousLabel="Previous"></pagination-controls>
+        <pagination-controls class="pagination-container__controls" (pageChange)="page = $event"
+            previousLabel="Previous"></pagination-controls>
     </div>
 </div>
