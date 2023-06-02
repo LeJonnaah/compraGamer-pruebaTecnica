@@ -1,43 +1,43 @@
-<h2 class="register__title">Registro de usuario</h2>
 <form class="register__form" [formGroup]="formReg" (ngSubmit)="onSubmit()">
+    <h2 class="register__title">Registro de usuario</h2>
     <div class="register__form-group">
         <label class="register__label" for="name">Nombre</label>
-        <input [class.is-invalid]="invalidName" class="register__input" type="text" id="name" formControlName="name">
-        <small *ngIf="invalidName" class="register__error">El nombre no es válido</small>
+        <input [class.is-isInvalid]="isInvalidName" class="register__input" type="text" id="name" formControlName="name">
+        <small *ngIf="isInvalidName" class="register__error">El nombre no es válido</small>
     </div>
     <div class="register__form-group">
         <label class="register__label" for="lastName">Apellido</label>
-        <input [class.is-invalid]="invalidLastName" class="register__input" type="text" id="lastName"
+        <input [class.is-isInvalid]="isInvalidLastName" class="register__input" type="text" id="lastName"
             formControlName="lastName">
-        <small *ngIf="invalidLastName" class="register__error">El apellido no es válido</small>
+        <small *ngIf="isInvalidLastName" class="register__error">El apellido no es válido</small>
 
     </div>
     <div class="register__form-group">
         <label class="register__label" for="email">Email</label>
-        <input [class.is-invalid]="invalidEmail" class="register__input" type="text" id="email" formControlName="email">
-        <small *ngIf="invalidEmail" class="register__error">El email no es válido</small>
+        <input [class.is-isInvalid]="isInvalidEmail" class="register__input" type="text" id="email" formControlName="email">
+        <small *ngIf="isInvalidEmail" class="register__error">El email no es válido</small>
     </div>
     <div class="register__form-group">
         <label class="register__label" for="dni">DNI</label>
-        <input [class.is-invalid]="invalidDni" class="register__input" type="text" id="dni" formControlName="dni">
-        <small *ngIf="invalidDni" class="register__error">El DNI no es válido</small>
+        <input [class.is-isInvalid]="isInvalidDni" class="register__input" type="text" id="dni" formControlName="dni">
+        <small *ngIf="isInvalidDni" class="register__error">El DNI no es válido</small>
     </div>
     <div class="register__form-group">
         <label class="register__label" for="phone">Teléfono</label>
-        <input [class.is-invalid]="invalidPhone" class="register__input" type="text" id="phone" formControlName="phone">
-        <small *ngIf="invalidPhone" class="register__error">El teléfono no es válido</small>
+        <input [class.is-isInvalid]="isInvalidPhone" class="register__input" type="text" id="phone" formControlName="phone">
+        <small *ngIf="isInvalidPhone" class="register__error">El teléfono no es válido</small>
     </div>
     <div class="register__form-group">
         <label class="register__label" for="password">Contraseña</label>
-        <input [class.is-invalid]="invalidPassword" class="register__input" type="password" formControlName="password"
+        <input [class.is-isInvalid]="isInvalidPassword" class="register__input" type="password" formControlName="password"
             id="password" formControlName="password">
-        <small *ngIf="invalidPassword" class="register__error">La contraseña debe tener al menos 6 caracteres</small>
+        <small *ngIf="isInvalidPassword" class="register__error">La contraseña debe tener al menos 6 caracteres</small>
     </div>
     <div class="register__form-group">
         <label class="register__label" for="confirmPassword">Confirmar Contraseña</label>
-        <input [class.is-invalid]="invalidConfirmPassword" class="register__input" type="password"
+        <input [class.is-isInvalid]="isInvalidConfirmPassword" class="register__input" type="password"
             formControlName="confirmPassword" id="confirmPassword" formControlName="confirmPassword">
-        <small *ngIf="invalidConfirmPassword" class="register__error">Las contraseñas no coinciden</small>
+        <small *ngIf="isInvalidConfirmPassword" class="register__error">Las contraseñas no coinciden</small>
     </div>
     <div class="register__form-group">
         <a class="register__link" routerLink="/login">¿Ya tienes una cuenta?</a>

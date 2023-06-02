@@ -20,46 +20,50 @@ export class LoginComponent {
     this.createForm();
   }
 
-  // Create form
-
+  // Crea el formulario y define las validaciones
   createForm() {
     this.formLogin = this.fb.group({
       email: ['', Validators.required],
-      password: ['', Validators.required ]
+      password: ['', Validators.required]
     });
   }
 
-  // Validations
-
-  get invalidEmail() {
+  // Propiedad de conveniencia para verificar si el campo de email es inválido
+  get isInvalidEmail() {
     return this.formLogin.get('email')?.invalid && this.formLogin.get('email')?.touched;
   }
 
-  get invalidPassword() {
+  // Propiedad de conveniencia para verificar si el campo de contraseña es inválido
+  get isInvalidPassword() {
     return this.formLogin.get('password')?.invalid && this.formLogin.get('password')?.touched;
   }
-
-  // Handle Submit
 
   onSubmit() {
     this.userService.login(this.formLogin.value.email, this.formLogin.value.password)
       .then((userCredential) => {
         const user = userCredential.user;
+        // Guarda el usuario en el localStorage
+        localStorage.setItem('user', JSON.stringify(user));
+        // Alerta de éxito
         Swal.fire({
-          position: 'top-end',
+          position: 'center',
           icon: 'success',
           title: '¡Logueado correctamente!',
           showConfirmButton: false,
           timer: 1500
-        })
+        });
         this.router.navigate(['/']);
-      }
-      )
+      })
       .catch((error) => {
+        // Alerta de error
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: '¡Usuario o contraseña incorrectos!',
+        });
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
-      }
-      );
+      });
   }
 }
