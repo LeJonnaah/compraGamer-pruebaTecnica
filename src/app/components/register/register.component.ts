@@ -20,24 +20,22 @@ export class RegisterComponent {
     this.createForm();
   }
 
-  // Create form
-
+  // Crea el formulario y define las validaciones
   createForm() {
     this.formReg = this.fb.group({
-      name: ['', Validators.required, Validators.minLength(3)],
+      name: ['', [Validators.required, Validators.minLength(3)]],
       lastName: ['', Validators.required],
-      email: ['', Validators.required, Validators.email],
-      dni: ['', Validators.required,],
-      phone: ['', Validators.required,],
-      password: ['', Validators.required, Validators.minLength(6)],
-      confirmPassword: ['', Validators.required, Validators.minLength(6)]
+      email: ['', [Validators.required, Validators.email]],
+      dni: ['', Validators.required],
+      phone: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      confirmPassword: ['', [Validators.required, Validators.minLength(6)]]
     }, {
       validators: this.passwordsIguales('password', 'confirmPassword')
     });
   }
 
-  // Validations
-
+  // Validador personalizado para verificar si las contraseñas coinciden
   passwordsIguales(pass1Name: string, pass2Name: string) {
     return (formGroup: FormGroup) => {
       const pass1Control = formGroup.get(pass1Name);
@@ -51,75 +49,51 @@ export class RegisterComponent {
     };
   }
 
-  get invalidName() {
+  // Propiedades de conveniencia para verificar si los campos son inválidos
+  get isInvalidName() {
     return this.formReg.get('name')?.invalid && this.formReg.get('name')?.touched;
   }
-
-  get invalidLastName() {
+  get isInvalidLastName() {
     return this.formReg.get('lastName')?.invalid && this.formReg.get('lastName')?.touched;
   }
-
-  get invalidEmail() {
+  get isInvalidEmail() {
     return this.formReg.get('email')?.invalid && this.formReg.get('email')?.touched;
   }
-
-  get invalidDni() {
+  get isInvalidDni() {
     return this.formReg.get('dni')?.invalid && this.formReg.get('dni')?.touched;
   }
-
-  get invalidPhone() {
+  get isInvalidPhone() {
     return this.formReg.get('phone')?.invalid && this.formReg.get('phone')?.touched;
   }
-
-  get invalidPassword() {
+  get isInvalidPassword() {
     return this.formReg.get('password')?.invalid && this.formReg.get('password')?.touched;
   }
-
-  get invalidConfirmPassword() {
+  get isInvalidConfirmPassword() {
     const pass = this.formReg.get('password')?.value;
     const confirmPass = this.formReg.get('confirmPassword')?.value;
 
-    return (pass === confirmPass) ? false : true;
+    return pass !== confirmPass;
   }
-
-  // Handle submit
-
-  // onSubmit() {
-  //   if (this.formReg.invalid) {
-  //     return Object.values(this.formReg.controls).forEach(control => {
-  //       control.markAsTouched();
-  //     });
-  //   } else {
-  //     console.log(this.formReg.value);
-  //     this.userService.register(this.formReg.value.email, this.formReg.value.password)
-  //       .then((userCredential) => {
-  //         this.router.navigate(['/']);
-  //       })
-  //       .catch((error) => {
-  //         const errorCode = error.code;
-  //         const errorMessage = error.message;
-  //         console.log(errorCode, errorMessage);
-  //       }
-  //       );
-  //   }
-  // }
 
   onSubmit() {
     if (this.formReg.invalid) {
-      return Object.values(this.formReg.controls).forEach(control => {
+      // Marcar todos los controles como tocados si el formulario es inválido
+      Object.values(this.formReg.controls).forEach(control => {
         control.markAsTouched();
       });
     } else {
-      console.log(this.formReg.value);
+      // Realizar el registro
       this.userService.register(this.formReg.value.email, this.formReg.value.password)
         .then((userCredential) => {
           const userData = {
             email: this.formReg.value.email,
             uid: userCredential.user.uid
           };
+          // Guardar datos en el almacenamiento local
           localStorage.setItem('userData', JSON.stringify(userData));
           localStorage.setItem('formData', JSON.stringify(this.formReg.value)); 
           this.router.navigate(['/']);
+          // Alerta de éxito
           Swal.fire({
             icon: 'success',
             title: 'Registro exitoso',
@@ -129,6 +103,7 @@ export class RegisterComponent {
           });
         })
         .catch((error) => {
+          // Alerta de error
           Swal.fire({
             icon: 'error',
             title: 'Oops...',
@@ -141,5 +116,4 @@ export class RegisterComponent {
         });
     }
   }
-
 }
