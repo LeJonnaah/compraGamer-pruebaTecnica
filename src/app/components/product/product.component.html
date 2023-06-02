@@ -1,5 +1,10 @@
+<select [(ngModel)]="selectedCategory" (change)="filterProducts(selectedCategory)">
+    <option value="">Todas las categorías</option>
+    <option *ngFor="let category of subcategories" [value]="category.id">{{ category.nombre }}</option>
+</select>
+
 <div class="products-container">
-    <div *ngFor="let product of products   | paginate: { itemsPerPage: 10, currentPage: page }" class="product">
+    <div *ngFor="let product of filteredProducts | paginate: { itemsPerPage: 10, currentPage: page }" class="product">
         <img height="100" width="150" [ngSrc]="product.imagen" alt="{{ product.nombre }}" class="product__image">
         <h3 class="product__name">{{ product.nombre }}</h3>
         <p class="product__description">{{ product.subcategoria }}</p>

@@ -7,7 +7,5 @@ import { Component } from '@angular/core';
 export class MainComponent {
   category: string | undefined;
 
-  onShowCategory(newCategory: string) {
-    this.category = newCategory;
-  }
+
 }

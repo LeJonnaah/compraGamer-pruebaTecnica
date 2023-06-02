@@ -20,7 +20,6 @@ import { ProductComponent } from './components/product/product.component';
 import { CartComponent } from './components/cart/cart.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule } from '@angular/forms';
-import { FiltersComponent } from './components/filters/filters.component'
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
@@ -36,7 +35,6 @@ import { MatCardModule } from '@angular/material/card';
     MainComponent,
     ProductComponent,
     CartComponent,
-    FiltersComponent,
   ],
   imports: [
     BrowserModule,
