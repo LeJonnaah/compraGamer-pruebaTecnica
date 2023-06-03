@@ -4,7 +4,7 @@
   <div class="empty-cart" *ngIf="cartItems.length === 0">
     <p class="empty-cart__text">No hay productos en el carrito :(</p>
   </div>
-  
+
   <div class="cart__items">
     <div class="cart__item" *ngFor="let item of cartItems">
       <img [src]="item.imagen" alt="{{ item.nombre }}" class="cart__item-image">
@@ -12,7 +12,8 @@
         <h3 class="cart__item-title">{{ item.nombre }}</h3>
         <p class="cart__item-price">{{ item.precio | currency }}</p>
       </div>
-      <button mat-raised-button color='warn' class="cart__item-remove" (click)="removeFromCart(item.id)">Eliminar</button>
+      <button mat-raised-button color='warn' class="cart__item-remove"
+        (click)="removeFromCart(item.id)">Eliminar</button>
     </div>
   </div>
 </div>

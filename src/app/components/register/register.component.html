@@ -28,46 +28,47 @@
         <small *ngIf="isInvalidEmail" class="register__error">El email no es válido</small>
     </div>
 
-        <div class="register__form-group">
-            <mat-form-field>
-                <mat-label>DNI</mat-label>
-                <input matInput [class.is-isInvalid]="isInvalidDni" class="register__input" type="number" id="dni"
-                    formControlName="dni">
-            </mat-form-field>
-            <small *ngIf="isInvalidDni" class="register__error">El DNI no es válido</small>
-        </div>
+    <div class="register__form-group">
+        <mat-form-field>
+            <mat-label>DNI</mat-label>
+            <input matInput [class.is-isInvalid]="isInvalidDni" class="register__input" type="number" id="dni"
+                formControlName="dni">
+        </mat-form-field>
+        <small *ngIf="isInvalidDni" class="register__error">El DNI no es válido</small>
+    </div>
 
-        <div class="register__form-group">
-            <mat-form-field>
-                <mat-label>Telefono</mat-label>
-                <input matInput [class.is-isInvalid]="isInvalidPhone" class="register__input" type="number" id="phone"
-                    formControlName="phone">
-            </mat-form-field>
-            <small *ngIf="isInvalidPhone" class="register__error">El teléfono no es válido</small>
-        </div>
+    <div class="register__form-group">
+        <mat-form-field>
+            <mat-label>Telefono</mat-label>
+            <input matInput [class.is-isInvalid]="isInvalidPhone" class="register__input" type="number" id="phone"
+                formControlName="phone">
+        </mat-form-field>
+        <small *ngIf="isInvalidPhone" class="register__error">El teléfono no es válido</small>
+    </div>
 
-        <div class="register__form-group">
-            <mat-form-field>
-                <mat-label>Contraseña</mat-label>
-                <input matInput [class.is-isInvalid]="isInvalidPassword" class="register__input" type="password"
-                    formControlName="password" id="password" formControlName="password">
-            </mat-form-field>
-            <small *ngIf="isInvalidPassword" class="register__error">La contraseña debe tener al menos 6
-                caracteres</small>
-        </div>
+    <div class="register__form-group">
+        <mat-form-field>
+            <mat-label>Contraseña</mat-label>
+            <input matInput [class.is-isInvalid]="isInvalidPassword" class="register__input" type="password"
+                formControlName="password" id="password" formControlName="password">
+        </mat-form-field>
+        <small *ngIf="isInvalidPassword" class="register__error">La contraseña debe tener al menos 6
+            caracteres</small>
+    </div>
 
-        <div class="register__form-group">
-            <mat-form-field>
-                <mat-label>Confirmar contraseña</mat-label>
-                <input matInput [class.is-isInvalid]="isInvalidConfirmPassword" class="register__input" type="password"
-                    formControlName="confirmPassword" id="confirmPassword" formControlName="confirmPassword">
-            </mat-form-field>
-            <small *ngIf="isInvalidConfirmPassword" class="register__error">Las contraseñas no coinciden</small>
-        </div>
+    <div class="register__form-group">
+        <mat-form-field>
+            <mat-label>Confirmar contraseña</mat-label>
+            <input matInput [class.is-isInvalid]="isInvalidConfirmPassword" class="register__input" type="password"
+                formControlName="confirmPassword" id="confirmPassword" formControlName="confirmPassword">
+        </mat-form-field>
+        <small *ngIf="isInvalidConfirmPassword" class="register__error">Las contraseñas no coinciden</small>
+    </div>
 
-        <div class="register__form-group">
-            <a class="register__link" routerLink="/login">¿Ya tienes una cuenta?</a>
-        </div>
+    <div class="register__form-group">
+        <a class="register__link" routerLink="/login">¿Ya tienes una cuenta?</a>
+    </div>
 
-        <button mat-raised-button color="primary" color="primary" class="register__button" type="submit">Registrarme</button>
+    <button mat-raised-button color="primary" color="primary" class="register__button"
+        type="submit">Registrarme</button>
 </form>

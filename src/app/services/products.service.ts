@@ -29,11 +29,11 @@ export class ProductosService {
     // Asignar nombre de subcategoría e URL de imagen a cada producto
     products.forEach(product => {
       const subcategory = subcategoriesMap[product.id_subcategoria];
-      
+
       if (subcategory) {
         product.subcategoria = subcategory.nombre;
       }
-  
+
       const imageName = product.imagenes[0].nombre;
       const imageUrl = `${this.imageBaseUrl}${imageName}-med.jpg`;
       product.imagen = imageUrl;

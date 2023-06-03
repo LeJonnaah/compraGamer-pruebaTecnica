@@ -17,7 +17,7 @@ export class CartService {
 
   // Método para eliminar un producto del carrito
   removeFromCart(product: any): void {
-    this.cartItems.splice(product, 1); 
+    this.cartItems.splice(product, 1);
     this.totalItems--;
   }
 

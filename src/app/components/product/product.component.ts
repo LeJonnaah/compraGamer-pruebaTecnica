@@ -18,7 +18,7 @@ export class ProductComponent implements OnInit {
   filteredProducts: any[] = [];
   pageSize = 10;
   currentPage = 0;
-  
+
   constructor(
     private productosService: ProductosService,
     private cartService: CartService,
@@ -49,7 +49,7 @@ export class ProductComponent implements OnInit {
       this.assignSubcategoryNameAndImageUrl();
     });
   }
-  
+
   // Filtrar productos por categoría
   filterProducts(category: number) {
     this.selectedCategory = category;
@@ -68,7 +68,7 @@ export class ProductComponent implements OnInit {
     return this.filteredProducts.slice(startIndex, endIndex);
   }
 
-// Cambiar página
+  // Cambiar página
   onPageChange(event: PageEvent) {
     this.currentPage = event.pageIndex;
     this.pageSize = event.pageSize;

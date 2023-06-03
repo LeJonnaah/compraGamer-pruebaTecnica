@@ -17,7 +17,7 @@ export class NavbarComponent {
     private userService: UserService,
     private router: Router,
     private cartService: CartService
-  ) {}
+  ) { }
 
   // Propiedad para obtener el número total de elementos en el carrito
   get totalItems() {
@@ -34,13 +34,13 @@ export class NavbarComponent {
 
   // Método que se ejecuta al hacer clic en el botón de logout
   onClick() {
-    this.userService.logout(); 
-    this.router.navigate(['/login']); 
+    this.userService.logout();
+    this.router.navigate(['/login']);
     Swal.fire({
       icon: 'success',
       title: 'Has cerrado sesión',
       showConfirmButton: false,
       timer: 1500
-    }); 
+    });
   }
 }

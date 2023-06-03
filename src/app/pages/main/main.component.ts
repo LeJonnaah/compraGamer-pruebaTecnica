@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 export class MainComponent {
   category: string | undefined;
 
+  // Imagenes del carrusel
   images = [
     {
       imageSrc: 'assets/images/compragamer_banner-1.jpg',
