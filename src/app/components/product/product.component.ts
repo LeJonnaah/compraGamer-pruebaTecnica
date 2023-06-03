@@ -3,6 +3,7 @@ import { ProductosService } from '../../services/products.service';
 import { CartService } from '../../services/cart.service';
 import { SubcategoryService } from 'src/app/services/sub-categories.service';
 import Swal from 'sweetalert2';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-product',
@@ -11,11 +12,12 @@ import Swal from 'sweetalert2';
 })
 
 export class ProductComponent implements OnInit {
-  page!: number;
   products: any[] = [];
   subcategories: any[] = [];
   selectedCategory: number = 0;
   filteredProducts: any[] = [];
+  pageSize = 10;
+  currentPage = 0;
   
   constructor(
     private productosService: ProductosService,
@@ -57,5 +59,18 @@ export class ProductComponent implements OnInit {
   // Asignar nombre de subcategoría e imagen URL a los productos
   assignSubcategoryNameAndImageUrl() {
     this.productosService.assignSubcategoryNameAndImageUrl(this.products, this.subcategories);
+  }
+
+  // Paginación
+  get pagedProducts() {
+    const startIndex = this.currentPage * this.pageSize;
+    const endIndex = startIndex + this.pageSize;
+    return this.filteredProducts.slice(startIndex, endIndex);
+  }
+
+// Cambiar página
+  onPageChange(event: PageEvent) {
+    this.currentPage = event.pageIndex;
+    this.pageSize = event.pageSize;
   }
 }

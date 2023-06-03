@@ -45,21 +45,6 @@
             font-size: 2rem;
             margin-bottom: 20px;
         }
-
-        &-checkout {
-            background-color: $primary-color;
-            color: #fff;
-            border: none;
-            padding: 10px;
-            font-size: 14px;
-            font-weight: 800;
-            border-radius: 10px;
-            cursor: pointer;
-
-            &:hover {
-                background-color: darken($primary-color, 10%);
-            }
-        }
     }
 }
 
@@ -87,21 +72,6 @@
     &-details {
         flex: 1;
     }
-
-    &-remove {
-        background-color: #c62828;
-        color: #fff;
-        border: none;
-        padding: 10px;
-        font-size: 14px;
-        font-weight: 800;
-        border-radius: 50px;
-        cursor: pointer;
-
-        &:hover {
-            background-color: #b71c1c;
-        }
-    }
 }
 
 .empty-cart {
@@ -111,4 +81,5 @@
     text-align: center;
     font-size: 3rem;
     margin: 10rem auto;
+    line-height: 1;
 }

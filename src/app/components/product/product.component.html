@@ -13,8 +13,7 @@
             <span>No se encontraron productos :(</span>
         </div>
 
-        <div *ngFor="let product of filteredProducts | paginate: { itemsPerPage: 10, currentPage: page }"
-            class="product">
+        <div class="product" *ngFor="let product of pagedProducts">
             <div class="product__image-container">
                 <img height="100" width="150" [ngSrc]="product.imagen" alt="{{ product.nombre }}"
                     class="product__image">
@@ -30,7 +29,10 @@
     </div>
 
     <div class="pagination-container">
-        <pagination-controls class="pagination-container__controls" (pageChange)="page = $event"
-            previousLabel="Previous"></pagination-controls>
+            <mat-paginator [length]="filteredProducts.length"
+            [pageSize]="pageSize"
+            [pageSizeOptions]="[5, 10, 25]"
+            (page)="onPageChange($event)">
+</mat-paginator>
     </div>
 </div>

@@ -41,21 +41,6 @@
         }
     }
 
-    &__button {
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
-
-        &:hover {
-            background-color: #0069d9;
-        }
-    }
-
     &__error {
         color: red;
     }

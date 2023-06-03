@@ -12,7 +12,7 @@
         <h3 class="cart__item-title">{{ item.nombre }}</h3>
         <p class="cart__item-price">{{ item.precio | currency }}</p>
       </div>
-      <button class="cart__item-remove" (click)="removeFromCart(item.id)">Eliminar</button>
+      <button mat-raised-button color='warn' class="cart__item-remove" (click)="removeFromCart(item.id)">Eliminar</button>
     </div>
   </div>
 </div>
@@ -20,5 +20,5 @@
 <div class="cart__summary">
   <h2 class="cart__summary-title">Resumen del Carrito</h2>
   <p class="cart__summary-total">Total: {{ getTotalPrice() | currency }}</p>
-  <button class="cart__summary-checkout">Pagar</button>
+  <button mat-raised-button color="primary" class="cart__summary-checkout">Pagar</button>
 </div>
