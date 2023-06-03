@@ -1,7 +1,12 @@
+@import '/src/variables.scss';
+
 .register {
     &__title {
-        font-size: 24px;
-        margin-bottom: 20px;
+        font-family: 'Codec Cold Codec Cold ExtraBold', sans-serif;
+        font-size: 2rem;
+        font-weight: 900;
+        color: $primary-color;
+        margin: 0 0 1em 0;
     }
 
     &__form {
@@ -15,6 +20,7 @@
         border: 1px solid #ccc;
         border-radius: 5px;
         margin-top: 100px;
+        margin-bottom: 100px;
     }
 
     &__form-group {
@@ -22,19 +28,6 @@
         flex-direction: column;
         width: 100%;
         margin-bottom: 20px;
-    }
-
-    &__label {
-        font-size: 16px;
-        margin-bottom: 5px;
-    }
-
-    &__input {
-        width: 95%;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        font-size: 16px;
     }
 
     &__link {

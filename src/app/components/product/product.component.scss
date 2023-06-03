@@ -22,6 +22,14 @@
         cursor: pointer;
         transition: all 0.3s ease-in-out;
     }
+
+    &__option {
+        font-size: 1rem;
+        color: $primary-color;
+        font-family: 'Codec Cold Trial Light', sans-serif;
+        font-weight: 900;
+        transition: all 0.3s ease-in-out;
+    }
 }
 
 .products-container {
@@ -132,26 +140,3 @@
     color: $primary-color;
     margin: 1em 0;
 }
-
-// .pagination-container {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     margin: 2em 0;
-
-//     &__controls {
-//         background-color: #fff;
-//         color: #000;
-//         border: 1px solid #ccc;
-//         border-radius: 5px;
-//         padding: 5px;
-//         margin: 5px;
-//         cursor: pointer;
-//         transition: all 0.3s ease-in-out;
-
-//         &:hover {
-//             background-color: #000;
-//             color: #fff;
-//         }
-//     }
-// }

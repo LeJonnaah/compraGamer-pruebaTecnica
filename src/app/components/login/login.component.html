@@ -1,18 +1,27 @@
 <form class="login__form" [formGroup]="formLogin" (ngSubmit)="onSubmit()">
     <h2 class="login__title">Iniciar sesión</h2>
+
     <div class="login__form-group">
-        <label class="login__label" for="email">Email</label>
-        <input [class.is-invalid]="isInvalidEmail" class="login__input" type="text" id="email" formControlName="email">
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput [class.is-invalid]="isInvalidEmail" class="login__input" type="text" id="email"
+                formControlName="email">
+        </mat-form-field>
         <span *ngIf="isInvalidEmail" class="login__error">El email no es válido</span>
     </div>
+
     <div class="login__form-group">
-        <label class="login__label" for="password">Contraseña</label>
-        <input [class.is-invalid]="isInvalidPassword" class="login__input" type="password" id="password"
-            formControlName="password">
+        <mat-form-field>
+            <mat-label>Contraseña</mat-label>
+            <input matInput [class.is-invalid]="isInvalidPassword" class="login__input" type="password"
+                formControlName="password" id="password" formControlName="password">
+        </mat-form-field>
         <span *ngIf="isInvalidPassword" class="login__error">La contraseña debe tener al menos 6 caracteres</span>
     </div>
+
     <div class="login__form-group">
         <a class="login__link" routerLink="/register">¿No tienes una cuenta?</a>
     </div>
+
     <button class="login__button" type="submit">Iniciar sesión</button>
 </form>

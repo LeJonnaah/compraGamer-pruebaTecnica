@@ -89,9 +89,14 @@ export class RegisterComponent {
             email: this.formReg.value.email,
             uid: userCredential.user.uid
           };
-          // Guardar datos en el almacenamiento local
-          localStorage.setItem('userData', JSON.stringify(userData));
-          localStorage.setItem('formData', JSON.stringify(this.formReg.value)); 
+          // Guardar datos en el arreglo de registros
+          const formData = {
+            userData: userData,
+            formData: this.formReg.value
+          };
+          const registrations = JSON.parse(localStorage.getItem('registrations') || '[]');
+          registrations.push(formData);
+          localStorage.setItem('registrations', JSON.stringify(registrations));
           this.router.navigate(['/']);
           // Alerta de éxito
           Swal.fire({
@@ -106,14 +111,12 @@ export class RegisterComponent {
           // Alerta de error
           Swal.fire({
             icon: 'error',
-            title: 'Oops...',
-            text: 'Algo salió mal',
-            footer: 'Por favor, intente nuevamente'
+            title: 'Error al registrar',
+            text: error.message,
+            confirmButtonText: 'Aceptar'
           });
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          console.log(errorCode, errorMessage);
         });
     }
   }
+  
 }

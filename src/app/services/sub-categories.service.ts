@@ -10,6 +10,7 @@ export class SubcategoryService {
 
   constructor(private http: HttpClient) { }
 
+  // Obtener subcategorías
   getSubcategories(): Observable<Array<any>> {
     return this.http.get<Array<any>>(this.subcategoryUrl);
   }
