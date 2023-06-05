@@ -1,27 +1,23 @@
 # CompraGamerPruebaTecnica
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.3.
+Prueba técnica Angular básico, desarrollado y diseñado por Jonathan Andueza
 
-## Development server
+## Sobre mí
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+¡Hola! Me llamo Jonathan Andueza y soy un desarrollador web con experiencia en Angular, React, NodeJS, Express, MongoDB, HTML, CSS, JavaScript, TypeScript, Git, GitHub, entre otros.
 
-## Code scaffolding
+Este proyecto fue creado como parte de una prueba técnica para Compragamer, para el puesto de Front End Developer JR. Me encantó enfrentar este desafío y aplicar mis habilidades de desarrollo para lograr los objetivos propuestos por la consigna. Para mí sería un honor trabajar en una empresa como Compragamer, ya que, como apasionado de la tecnología y del ambiente del gaming, sería un sueño trabajar en una empresa que se dedica a la venta de productos de este rubro.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Espero que les guste mi trabajo y que me den la oportunidad de formar parte de su equipo de trabajo. ¡Muchas gracias!
 
-## Build
+## Enfoque del proyecto
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+El objetivo de este proyecto es crear una aplicación web que permita visualizar los productos de la tienda Compragamer, y que permita al usuario filtrar los productos por categoría, marca, precio, etc. Además, el usuario puede agregar productos al carrito de compras y visualizar el total de la compra.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Contacto
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Email: jonathanandueza1201@gmail.com  
+- LinkedIn: https://www.linkedin.com/in/jonathan-andueza-7bba69227/
+- GitHub: https://github.com/LeJonnaah
+- Teléfono: +54 9 11 5124-3303
